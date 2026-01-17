@@ -14,4 +14,4 @@ Integrate Sport Bar’s data into Atlikon’s existing pipeline to create a unif
 
 ### 🧱 **Data Architecture**
 
-![](/Workspace/Users/tosinforlly@gmail.com/FMCG-Data-Pipeline/Documents/atlikon_architecture.gif)
+![Demo](Documents/atlikon_architecture.gif)
