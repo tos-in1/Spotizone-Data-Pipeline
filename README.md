@@ -1,17 +1,20 @@
-# From Chaos to Clarity: Atlikon Data Pipeline in Databricks
+# Atlikon Data Pipeline
 
-### **Background Story**
-Every year, companies acquire other businesses with the goal of expanding into newer markets and creating greater value. **Atlikon**, a global sports equipment manufacturer, acquired **Sport Bar**, a fast-growing startup in the energy bar and athletic nutrition space. This acquisition brought innovation and new customer opportunities, but also introduced data conflicts across both businesses, with inconsistent formats and missing records.
+#### _**Background Story**_
 
-The impact was immediate. Teams spent hours reconciling conflicting data instead of acting on it, sales numbers didn’t align, and leadership struggled to make confident decisions. Without a single source of truth, what should have been a smooth integration became a constant cycle of patching gaps and chasing inconsistencies.
+**Atlikon** is one of the leading global manufacturers of sport equipment, known for structured operations and long standing reliance on ERP systems. Recently, Atlikon acquired **Sport Bar**; a fast growing startup in the energy bar and athletic nutrition space. Unlike Atlikon, Sport Bar data lived everywhere: spreadsheets, cloud tools, hastily built APIs and even Whatsapp export. During its rapid growth phase, some data were never properly stored at all - simply lost along the way.
 
-### **Project Goal & Objectives**
-Integrate Sport Bar’s data into Atlikon’s existing pipeline to create a unified, reliable source of truth for reporting. This includes:
- - Ingesting data from Sport Bar’s diverse sources, including spreadsheets and cloud tools
- - Transforming and validating records to ensure consistency across dataset
- - Merging Sport Bar data into Atlikon’s pipeline to support unified reporting and trustworthy decision making.
+#### _**The Problem**_
+In an effort to preserve Sport Bar’s innovative culture, Atlikon leadership decided to keep the startup’s team, tools and processes intact - A respectful choice, but a risky one. 
+Sooner than expected, the cracks began to show. As Atlikon decided to unify supply chain forecasting and inventory planning across both companies, the data inconsistency became a bottleneck. Metrics did not align, sales numbers were conflicted and reporting lacked a single source of truth. Nothing just tied together
 
+#### **The Task**
+Atlikon approached the Data Engineering team with a clear and urgent request: 
 
-### 🧱 **Data Architecture**
+      “Give us a reliable data layer we can trust - something that works now, while we fix the rest”. 
 
-![Demo](Documents/atlikon_architecture.gif)
+The Data Engineering team is tasked with turning chaos into clarity. This includes ingesting messy and inconsistent data, aligning metrics across both organizations, handling missing and incomplete records and building a scalable data foundation that supports unified reporting and confident decision making.
+
+##### 🧱 _**Data Architecture**_
+
+![architecture](/Workspace/Users/tosinforlly@gmail.com/FMCG-Data-Pipeline/Documents/atlikon_architecture.gif)
