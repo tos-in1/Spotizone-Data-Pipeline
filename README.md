@@ -72,7 +72,7 @@ This architecture follows the medallion architecture and illustrates an end-to-e
 ![](Jobs%20%26%20Pipeline/workflow.png)
 
 #### 🧑🏽‍💼 customer_processing 
-  The [Customer Processing Notebook](Scripts/2_spotizone_dim_processing/customer_data_processing) processes Sport Bar customer data across the Bronze, Silver, and Gold layers and integrates it into Spotizone’s existing `dim_customer` existing table.
+  The [Customer Processing Notebook](Scripts/2_spotizone_dim_processing/customer_data_processing.ipynb) processes Sport Bar customer data across the Bronze, Silver, and Gold layers and integrates it into Spotizone’s existing `dim_customer` existing table.
 
  - **Execution Strategy**
    - The notebook is designed as a full refresh pipeline for Sport Bar data where by on each run, data in the `Bronze`, `Silver`, and `Gold` layers is fully overwritten
