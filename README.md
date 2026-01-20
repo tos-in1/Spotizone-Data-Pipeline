@@ -69,7 +69,7 @@ This architecture follows the medallion architecture and illustrates an end-to-e
 #### Databricks Jobs
   The Databricks Jobs orchestrates the daily execution of the Databricks notebooks. A pipeline called `spotizone pipeline` is created that automatically orchestrates the notebooks. Below is the structure of the pipeline:
 
-![](Jobs & Pipeline/workflow.png)
+![](Jobs%20%26%20Pipeline/workflow.png)
 
 #### 🧑🏽‍💼 customer_processing 
   The [Customer Processing Notebook](Scripts/2_spotizone_dim_processing/customer_data_processing) processes Sport Bar customer data across the Bronze, Silver, and Gold layers and integrates it into Spotizone’s existing `dim_customer` existing table.
@@ -95,7 +95,7 @@ This architecture follows the medallion architecture and illustrates an end-to-e
      - Produces a unified customer dimension table used for reporting
 
 #### ⛳ products_processing
-The [Products Processing Notebook](Scripts/2_spotizone_dim_processing/products_data_processing) processes Sport Bar products data across the Bronze, Silver, and Gold layers and integrates it into Spotizone’s existing `dim_products` existing table.
+The [Products Processing Notebook](Scripts/2_spotizone_dim_processing/products_data_processing.ipynb) processes Sport Bar products data across the Bronze, Silver, and Gold layers and integrates it into Spotizone’s existing `dim_products` existing table.
  - **Execution Strategy**
    - The `product_processing` notebook is designed as a full refresh pipeline for Sport Bar data where by on each run, data in the `Bronze`, `Silver`, and `Gold` layers is fully overwritten
  - **Bronze Layer (Raw Data)**
@@ -114,7 +114,7 @@ The [Products Processing Notebook](Scripts/2_spotizone_dim_processing/products_d
      - Produces a unified products dimension table used for reporting
 
 #### 💰 gross_price_processing
-The [Gross Price Processing Notebook](Scripts/2_spotizone_dim_processing/gross_price_data_processing) processes Sport Bar `gross_price` data across the Bronze, Silver, and Gold layers and integrates it into Spotizone's existing `dim_gross_price` existing table.
+The [Gross Price Processing Notebook](Scripts/2_spotizone_dim_processing/gross_price_data_processing.ipynb) processes Sport Bar `gross_price` data across the Bronze, Silver, and Gold layers and integrates it into Spotizone's existing `dim_gross_price` existing table.
  - **Execution Strategy**
    - The `gross_price_processing` notebook is designed as a full refresh pipeline for Sport Bar data where by on each run, data in the `Bronze`, `Silver`, and `Gold` layers is fully overwritten
  - **Bronze Layer (Raw Data)**
@@ -133,7 +133,7 @@ The [Gross Price Processing Notebook](Scripts/2_spotizone_dim_processing/gross_p
      - Produces a unified products dimension table used for reporting
 
 #### 🛒 orders_processing
-The [Orders Processing Notebook](Scripts/2_spotizone_dim_processing/gross_price_data_processing) processes Sport Bar `fact_orders` data across the Bronze, Silver, and Gold layers and integrates it into Spotizone's existing `fact_orders` existing table.
+The [Orders Processing Notebook](Scripts/2_spotizone_dim_processing/gross_price_data_processing.ipynb) processes Sport Bar `fact_orders` data across the Bronze, Silver, and Gold layers and integrates it into Spotizone's existing `fact_orders` existing table.
  - **Execution Strategy**
    - The `orders_processing` notebook is designed to run using incremental append logic where by on each run, Only new data in the `Bronze`, `Silver`, and `Gold` layers is added
    - Staging layers are used to isolate raw and newly cleaned data
@@ -156,19 +156,18 @@ The [Orders Processing Notebook](Scripts/2_spotizone_dim_processing/gross_price_
 #### Pipeline Manual Run
 The pipeline `Spotizone Pipeline` is manually triggered for an initial test run to validate end-to-end execution before enabling scheduled runs
 
-![Manual Run](Jobs & Pipeline/1st Succesful run.png)
+![](Jobs%20%26%20Pipeline/1st%20Succesful%20run.png)
 
 #### Pipeline Email Notification
 Email notifications are configured as well to alert stakeholders when the pipeline starts, completes successfully, or fails.
 
-![Email Notification](Jobs & Pipeline/email notification.png)
+![](Jobs%20%26%20Pipeline/email%20notification.png)
 
 
 #### Pipeline Trigger Run
 A daily Trigger is created and time set to run the pipeline daily at exactly 11:00 pm / 23:00 at the end of business days
 
 
-![](Jobs & Pipeline/1st Succesful run.png)
 
 
 ## _Dashboard_
