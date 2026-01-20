@@ -9,7 +9,7 @@
  - 🏗️ [System Architecture](#system-architecture)
  - 🔗 [Data Model](#data-model)
  - 🛠️ [Tech Stack](#tech-stack)
- - 🔃 [How the Pipeline Works](#how-the -pipeline-works)
+ - 🔃 [How the Pipeline Works](#how-the-pipeline-works)
  - 📈 [Dashboard](#dashboard)
  - 🙋🏽‍♂️ [Contact](#contact)
 
@@ -23,7 +23,8 @@ The impact was immediate - Teams spent hours reconciling data instead of acting 
 ## _Project Tasks & Objective_
 The objective of this project is to transform Sport Bar inconsistent data into a scalable and trustworthy foundation for decision-making. This Includes:
  - Cleaning, standardizing, and validating records to ensure consistency.
- - Merging Sport Bar data into Sportizone’s pipeline to support accurate, unified reporting.
+ - Merging Sport Bar data into Sportizone's pipeline to support accurate, unified reporting.
+ - Orchestrating automated daily pipeline runs to ensure reliable, repeatable data processing.
 
 ## _System Architecture_
 
@@ -66,7 +67,7 @@ This architecture follows the medallion architecture and illustrates an end-to-e
 
 ## _How the Pipeline Works_
 #### Databricks Jobs
-The Databricks Jobs orchestrates the daily execution of the Databricks notebooks. A pipeline called `spotizone pipeline` is created that automatically orchestrates the notebooks. Below is the structure of the pipeline:
+  The Databricks Jobs orchestrates the daily execution of the Databricks notebooks. A pipeline called `spotizone pipeline` is created that automatically orchestrates the notebooks. Below is the structure of the pipeline:
 
 ![](Jobs & Pipeline/workflow.png)
 
