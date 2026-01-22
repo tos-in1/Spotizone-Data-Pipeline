@@ -7,7 +7,7 @@
  - 📖 [Background Story](#background-story)
  - ✏️ [Project Tasks & Objective](#project-task--Objective)
  - 🏗️ [System Architecture](#system-architecture)
- - 🔗 [Data Model](#data-model)
+ - 🔗 [Data Model](#data-modelling)
  - 🛠️ [Tech Stack](#tech-stack)
  - 🔃 [How the Pipeline Works](#how-the-pipeline-works)
  - 📈 [Dashboard](#dashboard)
@@ -175,7 +175,7 @@ Email notifications are configured as well to alert stakeholders when the pipeli
 #### Pipeline Trigger Run
 A daily trigger is configured to run the pipeline at 11:00 PM (23:00) at the close of each business day. As shown in the image below, the pipeline has completed two successful scheduled runs, performing incremental order loads for 2025-12-29 and 2025-12-30 respectively.
 
-![](Jobs & Pipeline/incremental.png)
+![](Jobs%20%26%20Pipeline/incremental.png)
 
 
 
