@@ -12,7 +12,7 @@ Using **Databricks** and the **Medallion Architecture**, the pipeline ingests, t
  - 🔗 [Data Model](#data-modelling)
  - 🛠️ [Tech Stack](#tech-stack)
  - 🔃 [How the Pipeline Works](#how-the-pipeline-works)
- - 📈 [Dashboard](#dashboard)
+ - 🔮 [Future Enhancements](#future-enhancements)
  - 🙋🏽‍♂️ [Contact](#contact)
 
 
@@ -179,12 +179,11 @@ A daily trigger is configured to run the pipeline at 11:00 PM (23:00) at the clo
 
 ![](Jobs%20%26%20Pipeline/incremental.png)
 
+## _Future Enhancements_
 
-
-
-## _Dashboard_
-
-
-
-
+  - **CI/CD Integration** - Introduce automated CI/CD pipelines to validate notebooks, enforce code quality checks, and deploy changes seamlessly across environments.
+  - **Monitoring & Alerting** - Build on the existing email notification system by adding richer pipeline metrics, structured logging, and advanced alerting for data quality issues and performance anomalies.
 ## _Contact_
+If you'd like to discuss this project or potential opportunities, feel free to reach out:
+
+ [LinkedIn](https://www.linkedin.com/in/tosinfolorunso01/)
