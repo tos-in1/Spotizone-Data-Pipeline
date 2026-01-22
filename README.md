@@ -31,22 +31,30 @@ The objective of this project is to transform Sport Bar inconsistent data into a
 ![Demo](Documents/spotizone_architecture.gif)
 
 ### _Data Pipeline Flow_
-This architecture follows the medallion architecture and illustrates an end-to-end data pipeline designed to integrate Sport Bar data into Spotizone's existing data pipeline for unified reporting. The pipeline ensures structured ingestion, transformation, and consolidation of data to create a single source of truth for reliable decision-making.
+This architecture follows the medallion architecture and illustrates an end-to-end data pipeline designed to integrate Sport Bar data into Spotizone's existing data pipeline for unified reporting. The pipeline ensures structured ingestion, transformation, and consolidation of data to create a single source of truth for Spotizone's reliable decision-making.
 #### Key Components
  - #### 🔃 Extraction / Ingestion - From Source
-  Data from Sport Bar's OLTP systems is first landed in AWS S3, which serves as the staging and landing zone for raw extracts. From S3, the data is ingested into the Databricks Lakehouse in batch and incrementally, ensuring raw records are preserved for downstream processing.
+ Data from Sport Bar's OLTP systems is first landed in AWS S3, which serves as the staging and landing zone for raw extracts. From S3, the data is ingested into the Databricks Lakehouse in batch and incrementally, ensuring raw records are preserved for downstream processing.
+
+    ![Demo](Documents/s3_bucket.png)
 
  - #### 🔦 Transformation - Databricks (Medallion Architecture)
     - Bronze Layer: Raw ingestion of Sport Bar data with **zero** transformation
+
+      ![](Documents/bronze_schema.png)
     - Silver Layer: Schema standardization, data cleasing and validation
+
+      ![](Documents/silver_schema.png)
     - Gold Layer: Business-ready, unified datasets 
       - This business-ready data is then merged with existing Spotizone data for unified reporting
+
+      ![](Documents/gold_schema.png)
  
  - #### 🏠 Storage - Delta Lake 
   The merged gold-layer data is stored as delta tables for ACID transaction and scalable analytics
 
  - #### 📈 Visualization - Tableau
-  Tableau feeds directly into the gold layer, enabling dynamic dashboards and reports for stakeholders.
+  Tableau feeds directly into the unified gold layer, enabling dynamic dashboards and reports for stakeholders.
 
 
 ## _Data Modelling_
@@ -56,7 +64,7 @@ This architecture follows the medallion architecture and illustrates an end-to-e
 
 #### Gold Layer - Sport Bar
 
-![](Documents/sportbar_datamodel.gif)
+![](Documents/sportbar_data_model.gif)
 
 ## _Tech Stack_
  - Databricks
@@ -66,7 +74,7 @@ This architecture follows the medallion architecture and illustrates an end-to-e
  - Git / GitHub
 
 ## _How the Pipeline Works_
-#### Databricks Jobs
+#### Databricks Jobs Orchestrations
   The Databricks Jobs orchestrates the daily execution of the Databricks notebooks. A pipeline called `spotizone pipeline` is created that automatically orchestrates the notebooks. Below is the structure of the pipeline:
 
 ![](Jobs%20%26%20Pipeline/workflow.png)
@@ -133,7 +141,7 @@ The [Gross Price Processing Notebook](Scripts/2_spotizone_dim_processing/gross_p
      - Produces a unified products dimension table used for reporting
 
 #### 🛒 orders_processing
-The [Orders Processing Notebook](Scripts/2_spotizone_dim_processing/gross_price_data_processing.ipynb) processes Sport Bar `fact_orders` data across the Bronze, Silver, and Gold layers and integrates it into Spotizone's existing `fact_orders` existing table.
+The [Orders Processing Notebook](Scripts/3_spotizone_fact_processing/2_incremental_processing.ipynb) processes Sport Bar `fact_orders` data across the Bronze, Silver, and Gold layers and integrates it into Spotizone's existing `fact_orders` existing table.
  - **Execution Strategy**
    - The `orders_processing` notebook is designed to run using incremental append logic where by on each run, Only new data in the `Bronze`, `Silver`, and `Gold` layers is added
    - Staging layers are used to isolate raw and newly cleaned data
@@ -165,7 +173,9 @@ Email notifications are configured as well to alert stakeholders when the pipeli
 
 
 #### Pipeline Trigger Run
-A daily Trigger is created and time set to run the pipeline daily at exactly 11:00 pm / 23:00 at the end of business days
+A daily trigger is configured to run the pipeline at 11:00 PM (23:00) at the close of each business day. As shown in the image below, the pipeline has completed two successful scheduled runs, performing incremental order loads for 2025-12-29 and 2025-12-30 respectively.
+
+![](Jobs & Pipeline/incremental.png)
 
 
 
