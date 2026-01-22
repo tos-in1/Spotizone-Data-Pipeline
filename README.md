@@ -1,6 +1,8 @@
 # Chaos to Clarity: Spotizone Data Pipeline in Databricks
 ## _Overview_
+Integrating data after a business acquisition is usually not straightforward. Often times, systems don't align, metrics conflict, and teams struggle to trust the numbers in front of them. This project tackles that challenge by building a production style data pipeline that brings Sport Bar's (Child company) data into Spotizone's (Parent company) existing pipeline in a structured and reliable way.
 
+Using **Databricks** and the **Medallion Architecture**, the pipeline ingests, transforms, and unifies data into a single source of truth. Databricks jobs, incremental processing, and scheduled runs ensure the data stays consistent over time. In conclusion, the result is a trusted, analytics-ready foundation that feeds dashboards and reports, enabling teams move directly to insights.
 
 ## _Table of Content_
  - 📃 [Overview](#overview)
