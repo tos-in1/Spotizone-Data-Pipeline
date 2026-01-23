@@ -1,8 +1,12 @@
 # Chaos to Clarity: Spotizone Data Pipeline in Databricks
 ## _Overview_
-Integrating data after a business acquisition is usually not straightforward. Often times, systems don't align, metrics conflict, and teams struggle to trust the numbers in front of them. This project tackles that challenge by building a production style data pipeline that brings Sport Bar's (Child company) data into Spotizone's (Parent company) existing pipeline in a structured and reliable way.
+Integrating data after a business acquisition is rarely seamless. Often times, systems don't align, and teams are often left reconciling numbers instead of trusting them. 
 
-Using **Databricks** and the **Medallion Architecture**, the pipeline ingests, transforms, and unifies data into a single source of truth. Databricks jobs, incremental processing, and scheduled runs ensure the data stays consistent over time. In conclusion, the result is a trusted, analytics-ready foundation that feeds dashboards and reports, enabling teams move directly to insights.
+This project addresses that challenge by building a production-style data pipeline that integrates Sport Bar's data into Spotizone's existing lakehouse in a structured and reliable way.
+
+Using the Medallion Architecture, the pipeline ingests raw acquisition data, applies consistent transformations, and incrementally merges it into unified dimension and fact tables. Databricks Jobs, scheduling, and incremental processing ensure the data remains accurate and reliable over time.
+
+The result is a single, analytics-ready source of truth that feeds dashboards and reports, allowing teams to move from data reconciliation to confident decision-making.
 
 ## _Table of Content_
  - 📃 [Overview](#overview)
@@ -38,7 +42,7 @@ This architecture follows the medallion architecture and illustrates an end-to-e
  - #### 🔃 Extraction / Ingestion - From Source
  Data from Sport Bar's OLTP systems is first landed in AWS S3, which serves as the staging and landing zone for raw extracts. From S3, the data is ingested into the Databricks Lakehouse in batch and incrementally, ensuring raw records are preserved for downstream processing.
 
-    ![Demo](Documents/s3_bucket.png)
+    ![](Documents/s3_bucket.png)
 
  - #### 🔦 Transformation - Databricks (Medallion Architecture)
     - Bronze Layer: Raw ingestion of Sport Bar data with **zero** transformation
