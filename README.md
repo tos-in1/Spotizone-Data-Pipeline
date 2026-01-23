@@ -38,7 +38,7 @@ This architecture follows the medallion architecture and illustrates an end-to-e
  - #### 🔃 Extraction / Ingestion - From Source
  Data from Sport Bar's OLTP systems is first landed in AWS S3, which serves as the staging and landing zone for raw extracts. From S3, the data is ingested into the Databricks Lakehouse in batch and incrementally, ensuring raw records are preserved for downstream processing.
 
-    ![Demo](Documents/s3_bucket.png)
+   ![Demo](Documents/s3_bucket.png)
 
  - #### 🔦 Transformation - Databricks (Medallion Architecture)
     - Bronze Layer: Raw ingestion of Sport Bar data with **zero** transformation
