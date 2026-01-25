@@ -42,19 +42,22 @@ This architecture follows the medallion architecture and illustrates an end-to-e
  - #### 🔃 Extraction / Ingestion - From Source
  Data from Sport Bar's OLTP systems is first landed in AWS S3, which serves as the staging and landing zone for raw extracts. From S3, the data is ingested into the Databricks Lakehouse in batch and incrementally, ensuring raw records are preserved for downstream processing.
 
-    ![](Documents/s3_bucket.png)
+![](Documents/s3_bucket.png)
 
  - #### 🔦 Transformation - Databricks (Medallion Architecture)
     - Bronze Layer: Raw ingestion of Sport Bar data with **zero** transformation
 
-      ![](Documents/bronze_schema.png)
+   ![](Documents/bronze_schema.png)
+   
     - Silver Layer: Schema standardization, data cleasing and validation
 
-      ![](Documents/silver_schema.png)
-    - Gold Layer: Business-ready, unified datasets 
+   ![](Documents/silver_schema.png)
+   
+    - Gold Layer: Business-ready, unified datasets
+
       - This business-ready data is then merged with existing Spotizone data for unified reporting
 
-      ![](Documents/gold_schema.png)
+   ![](Documents/gold_schema.png)
  
  - #### 🏠 Storage - Delta Lake 
   The merged gold-layer data is stored as delta tables for ACID transaction and scalable analytics
